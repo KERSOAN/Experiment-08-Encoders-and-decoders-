@@ -55,16 +55,53 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
+Step1:- Open the quartus II software
+
+Step2:- Create a new project.
+
+Step3:- Name the projects such that the same name is used for mentioning the name of the module. 
+
+Step4:- Develop programmes for both Encoder and Decoder using verilog programming. 
+
+Step5:- Run RTL Simulation.
+
+Step6:- Create the Timing diagram.
+
+Step7:- Validate the outputs.
 
 
 
 ### PROGRAM 
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: KERSOAN P
-RegisterNumber:  212221230050
+Developed by: KADIN SAMSON L
+RegisterNumber:  212221230044
 */
+### ENCODER
+```
+module encoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+output a,b,c;
+input d0,d1,d2,d3,d4,d5,d6,d7;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
+```
+### DECODER
+```
+module decoder(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+output d0,d1,d2,d3,d4,d5,d6,d7;
+input a,b,c;
+assign d0=(~a&~b&~c);
+assign d1=(~a&~b&c);
+assign d2=(~a&b&~c);
+assign d3=(~a&b&c);
+assign d4=(a&~b&~c);
+assign d5=(a&~b&c);
+assign d6=(a&b&~c);
+assign d7=(a&b&c);
+endmodule
+```
 
 
 
@@ -72,6 +109,10 @@ RegisterNumber:  212221230050
 
 
 ### RTL LOGIC  
+### ENCODER:
+![git](encoder%20rtl.jpg)
+### DECODER:
+![git](decoder%20rtl.jpg)
 
 
 
@@ -81,12 +122,21 @@ RegisterNumber:  212221230050
 
 
 ### TIMING DIGRAMS  
-
+### ENCODER:
+![git](encoder%20td1.jpg)
+![git](encoder%20td2.jpg)
+### DECODER:
+![git](decoder%20td1.jpg)
+![git](decoder%20td2.jpg)
 
 
 
 
 ### TRUTH TABLE 
+### ENCODER:
+![git](encodertt.png)
+### DECODER:
+![git](decodertt.jpg)
 
 
 
@@ -94,3 +144,4 @@ RegisterNumber:  212221230050
 
 
 ### RESULTS 
+Therefore 8 to 3 ENCODER and 3 to 8 DECODER are implemented successfully using verilog and validate its output.
